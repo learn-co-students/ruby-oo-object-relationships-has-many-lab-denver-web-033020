@@ -1,0 +1,82 @@
+require 'pry'
+
+# create a class called Artist. class Artist has many songs. 
+class Artist
+    attr_accessor :name
+
+  # keeps an array of every artist instance in class Artist 
+    @@all = []
+  
+    # every time an instance artist is created
+        #it takes artist_name as an argument and creates a method that can call the artist name. 
+        #puts every instance into an array @@all
+    def initialize(name)
+      @name = name
+      @@all << self
+    end
+
+    # calls the array that keeps track of name of all songs in this class
+    def self.all
+      @@all
+    end
+
+  # create a method that returns instance, artist info when applied to an instance song. 
+        #binding.pry
+         # song is song object #<Song:0x00007fffe72fc620 @song_name="Hello">
+         # self is artist object > #<Artist:0x00007fffe72fc6e8 @name="Adele">
+
+    def add_song(song_name)
+        song_name.artist = self
+    end
+
+# create a method that when you are given the name of the song,
+    # it creates a song instance with song_name as an attribute AND
+    # creates a .artist method that returns the artist info. 
+    #binding.pry
+         #name => "Rolling in the Deep"
+        # self =><Artist:0x00007fffbb052450 @name="Adele">
+   
+    def add_song_by_name(song_name)
+        song = Song.new(song_name)
+        song.artist = self
+    end
+  
+# create a method that takes an array of all instances of the songs and only return the song with matching artist info. 
+    def songs
+      Song.all.select {|song| song.artist == self}
+    end
+  
+# create a method that counts all the songs in class Song. 
+    def self.song_count
+      Song.all.count
+    end
+  end
+
+
+  # create a class called Song. class Song belongs to class Artist.
+    # including :artist in attr_accessor signifieds that class Song belongs to class Artist
+class Song
+    attr_accessor :song_name, :artist
+
+    # keeps an array of every song instance in class song 
+    @@all = []
+
+  # every time an instance song is created
+        #it takes song_name as an argument and creates a method that can call the song name. 
+        #puts every instance into an array @@all
+    def initialize(song_name)
+      @song_name=song_name
+      @@all << self
+    end
+
+  # calls the array that keeps track of name of all songs in this class
+    def self.all
+      @@all
+    end
+  
+    def artist_name
+      artist.name if artist
+    end
+  end
+
+
