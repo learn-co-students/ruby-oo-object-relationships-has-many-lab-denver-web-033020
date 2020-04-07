@@ -11,15 +11,30 @@ class Artist
     def self.all
       @@all
     end
+    
+    #COMMENTS FOR ADD_SONG METHOD
+    # context scenario
+        # song has already been instantiated with its song name as an attribute 
+        # individual song will need to have a reference to the artist it belongs to.
  
-    # objective : when .artist is applied to song instance,  in whic take a song instance and add artist instance to it
-    # update artist method in class Song
-        # song in argument #<Song:0x00007fffee6a66e8 @name="Hello">
-        # you are updating the value of artist as self
-            #self = #<Artist:0x00007fffd209c570 @name="Adele">
-        # desired output 
-            #song  #<Song:0x00007fffc3f64788 @artist=#<Artist:0x00007fffc3f64850 @name="Adele">, @name="Hello"> 
-    # song has already been instantiated
+    # objective 
+        # In class Song, there is an .artist method (attr_accessor :artist).
+            # when .artist is applied, it should return @artist attribute (name of artist) of that song. 
+            # however, class Song itself does not track any information about the artist. 
+                #class Artist does. 
+        # Get class Artist and class Song to interact together so each class can get the necessary data and method from each other
+            # so they can run their respective duties.
+        # Dream method = when we pull in a song instance into class Artist, we will add artist attribute to it.
+    appy.artist method to a song, we want the artist instance(contains artist name) to be added.
+            # in class Song, we set up initialize method so that each instance of the song will have its song name.
+                # song instance in argument #<Song:0x00007fffee6a66e8 @name="Hello">
+            # we want to give the attribute of artist to this song. 
+                # we are just going to update this method so that song.artist now yields artist instance, which contains name of the artist. 
+                    #self = #<Artist:0x00007fffd209c570 @name="Adele">
+            # desired output 
+                # song instance now as class name, instance id, attribute called artist which contains artist instance, song name. 
+                #song  #<Song:0x00007fffc3f64788 @artist=#<Artist:0x00007fffc3f64850 @name="Adele">, @name="Hello"> 
+  
 
 
     def add_song(song)
