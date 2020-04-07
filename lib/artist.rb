@@ -24,8 +24,7 @@ class Artist
                 #class Artist does. 
         # Get class Artist and class Song to interact together so each class can get the necessary data and method from each other
             # so they can run their respective duties.
-        # Dream method = when we pull in a song instance into class Artist, we will add artist attribute to it.
-    appy.artist method to a song, we want the artist instance(contains artist name) to be added.
+        # Dream method = when we pull in a song instance into class Artist, we will add artist attribute to it. 
             # in class Song, we set up initialize method so that each instance of the song will have its song name.
                 # song instance in argument #<Song:0x00007fffee6a66e8 @name="Hello">
             # we want to give the attribute of artist to this song. 
@@ -34,7 +33,7 @@ class Artist
             # desired output 
                 # song instance now as class name, instance id, attribute called artist which contains artist instance, song name. 
                 #song  #<Song:0x00007fffc3f64788 @artist=#<Artist:0x00007fffc3f64850 @name="Adele">, @name="Hello"> 
-  
+             #appy.artist method to a song, we want the artist instance(contains artist name) to be added.
 
 
     def add_song(song)
